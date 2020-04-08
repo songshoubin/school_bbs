@@ -19,7 +19,7 @@
                 ,jump: function(obj, first){
                     //首次不执行
                     if(!first){
-                        location.href = "?pn=" + obj.curr;
+                        location.href = "?orderMode=" + obj.orderMode+"&pn="+obj.curr;
                     }
                 }
             });

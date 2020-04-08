@@ -24,6 +24,7 @@ public class UploadUtil {
     Consts consts;
 
     public final static String type_avatar = "avatar";
+    public final static String type_post = "post";
 
     public Result upload(String type, MultipartFile file) throws IOException {
 

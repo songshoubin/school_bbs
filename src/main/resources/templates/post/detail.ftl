@@ -78,7 +78,7 @@
                                     <cite>${comment.authorName}</cite>
                                 </a>
 
-                                <#if comment.user_id == post.user_id>
+                                <#if comment.authorId == post.authorId>
                                 <span>(楼主)</span>
                                 </#if>
                             </div>

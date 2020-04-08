@@ -7,6 +7,7 @@ import cn.hutool.crypto.SecureUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.example.common.lang.Result;
+import com.example.entity.Comment;
 import com.example.entity.Post;
 import com.example.entity.User;
 import com.example.entity.UserMessage;
@@ -45,7 +46,12 @@ public class UserController extends BaseController {
                 //.gt("created", DateUtil.offsetDay(new Date(), -30))
                 .orderByDesc("created")
         );
+        
+        List<Comment> comments = commentService.list(new QueryWrapper<Comment>()
+        		.eq("user_id", getProfileId())
+        		.orderByDesc("created"));
 
+        req.setAttribute("comments", comments);
         req.setAttribute("user", user);
         req.setAttribute("posts", posts);
         return "/user/home";
@@ -106,6 +112,7 @@ public class UserController extends BaseController {
         return Result.success().action("/user/set#info");
     }
 
+    //上传头像
     @ResponseBody
     @PostMapping("/user/upload")
     public Result uploadAvatar(@RequestParam(value = "file") MultipartFile file) throws IOException {

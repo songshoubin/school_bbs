@@ -61,7 +61,20 @@
               <div class="fly-panel">
                   <h3 class="fly-panel-title">${user.username} 最近的回答</h3>
                   <ul class="home-jieda">
-                      <div class="fly-none" style="min-height: 50px; padding:30px 0; height:auto;"><span>没有回答任何问题</span></div>
+	                  <#list comments as comment>
+	                      <li>
+	                          <a href="/post/${comment.postId}" class="home-dacontent"> ${comment.content}</a>
+	                          &nbsp&nbsp&nbsp
+	                          <i>${timeAgo(comment.created)}</i>
+	                          <em class="layui-hide-xs"></em>
+	                      </li>
+                      </#list>
+	                      
+                      <#if !comments>
+                          <div class="fly-none" style="min-height: 50px; padding:30px 0; height:auto;">
+                              <i style="font-size:14px;">没有回答任何问题</i>
+                          </div>
+                  	  </#if>
                   </ul>
               </div>
           </div>

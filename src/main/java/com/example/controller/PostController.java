@@ -213,7 +213,7 @@ public class PostController extends BaseController{
 
         postService.incrCommentCountAndUnionForWeekRank(post.getId(), true);// 本周热议数量加一
 
-        if(comment.getUserId() != post.getUserId()) {// 通知作者，有人评论了你的文章,作者自己评论自己文章，不需要通知
+        if(!comment.getUserId().equals(post.getUserId())) {// 通知作者，有人评论了你的文章,作者自己评论自己文章，不需要通知
             UserMessage message = new UserMessage();
             message.setPostId(jid);
             message.setCommentId(comment.getId());
