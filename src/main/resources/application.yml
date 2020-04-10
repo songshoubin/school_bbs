@@ -1,5 +1,9 @@
 # DataSource Config
-spring:
+
+#  jackson:
+#    generator:
+#      write_numbers_as_strings: true
+spring:     
   datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
     driver-class-name: com.p6spy.engine.spy.P6SpyDriver

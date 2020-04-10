@@ -11,14 +11,7 @@ import lombok.experimental.Accessors;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author 公众号：java思维导图
- * @since 2019-11-17
- */
+
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)

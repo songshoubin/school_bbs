@@ -5,14 +5,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author 公众号：java思维导图
- * @since 2019-11-17
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
@@ -44,7 +36,7 @@ public class UserMessage extends BaseEntity {
 
     /**
      * 消息类型
-     * 0系统消息 1评论文章 2评论评论
+     * 0系统消息 1评论文章 2评论评论  3点赞评论  4收藏文章
      */
     private Integer type;
 

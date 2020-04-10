@@ -19,14 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author 公众号：java思维导图
- * @since 2019-11-17
- */
+
 @Service
 public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements PostService {
 

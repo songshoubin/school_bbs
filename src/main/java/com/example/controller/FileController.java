@@ -20,7 +20,7 @@ import com.example.common.lang.Result;
 import com.example.util.UploadUtil;
 
 /**
- * @author song
+ * 图片上传接口
  *
  */
 

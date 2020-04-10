@@ -10,14 +10,6 @@ import com.example.vo.PostVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
-/**
- * <p>
- *  Mapper 接口
- * </p>
- *
- * @author 公众号：java思维导图
- * @since 2019-11-17
- */
 @Component
 public interface PostMapper extends BaseMapper<Post> {
 

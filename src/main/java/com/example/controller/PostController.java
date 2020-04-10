@@ -57,7 +57,7 @@ public class PostController extends BaseController{
     }
 
     /**
-     * 判断用户是否收藏了文章
+ 	* 判断用户是否收藏了文章
      * @param pid
      * @return
      */
@@ -76,7 +76,7 @@ public class PostController extends BaseController{
     public Result collectionAdd(Long pid) {
         Post post = postService.getById(pid);
 
-        Assert.isTrue(post != null, "改帖子已被删除");
+        Assert.isTrue(post != null, "该帖子已被删除");
         int count = collectionService.count(new QueryWrapper<UserCollection>()
                 .eq("user_id", getProfileId())
                 .eq("post_id", pid)
@@ -94,6 +94,19 @@ public class PostController extends BaseController{
         collection.setPostUserId(post.getUserId());
 
         collectionService.save(collection);
+        
+        //通知作者，作者收藏不需要通知
+        if(!post.getUserId().equals(getProfileId())) {// 通知作者，有人评论了你的文章,作者自己评论自己文章，不需要通知
+            UserMessage message = new UserMessage();
+            message.setPostId(pid);
+            //message.setCommentId(comment.getId());
+            message.setFromUserId(getProfileId());
+            message.setToUserId(post.getUserId());
+            message.setType(4);
+            message.setCreated(new Date());
+            message.setStatus(0);
+            messageService.save(message);
+        }
         return Result.success();
     }
 
@@ -115,7 +128,7 @@ public class PostController extends BaseController{
         String id = req.getParameter("id");
         if(!StringUtils.isEmpty(id)) {
             Post post = postService.getById(id);
-            Assert.isTrue(post != null, "改帖子已被删除");
+            Assert.isTrue(post != null, "该帖子已被删除");
             Assert.isTrue(post.getUserId().longValue() == getProfileId().longValue(), "没权限操作此文章");
             req.setAttribute("post", post);
         }
@@ -264,6 +277,19 @@ public class PostController extends BaseController{
     		comment.setVoteUp(comment.getVoteUp()+1);
         Assert.notNull(comment, "找不到对应评论！");
         commentService.updateById(comment);
+        
+        //通知作者，作者点赞不需要通知
+        if(!comment.getUserId().equals(getProfileId())) {// 通知作者，有人评论了你的文章,作者自己评论自己文章，不需要通知
+            UserMessage message = new UserMessage();
+            message.setPostId(comment.getPostId());
+            message.setCommentId(comment.getId());
+            message.setFromUserId(getProfileId());
+            message.setToUserId(comment.getUserId());
+            message.setType(3);
+            message.setCreated(new Date());
+            message.setStatus(0);
+            messageService.save(message);
+        }
         return Result.success(null);
     }
     

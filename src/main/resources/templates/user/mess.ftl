@@ -26,13 +26,21 @@
                 <li data-id="${mess.id}">
                   <blockquote class="layui-elem-quote">
                     <#if mess.type == 0>
-                    系统消息：${mess.content}
+                    	系统消息：${mess.content}
                     </#if>
                     <#if mess.type == 1>
-                      ${mess.fromUserName} 评论了你的文章 <${mess.postTitle}>，内容是 (${mess.content})
+                      ${mess.fromUserName} 评论了你的文章 <a href="/post/${mess.postId}" style="color:blue"><${mess.postTitle}></a>，内容是 (${mess.content})
                     </#if>
                     <#if mess.type == 2>
-                      ${mess.fromUserName} 回复了你的评论 (${mess.content})，文章是 <${mess.postTitle}>
+                      ${mess.fromUserName} 回复了你的评论 (${mess.content})，文章是 <a href="/post/${mess.postId}" style="color:blue"><${mess.postTitle}></a>
+                    </#if>
+                    
+                    <#if mess.type == 3>
+                      ${mess.fromUserName} 点赞了你的评论 ，文章是 <a href="/post/${mess.postId}" style="color:blue"><${mess.postTitle}></a>
+                    </#if>
+                    
+                    <#if mess.type == 4>
+                      ${mess.fromUserName} 收藏了你的文章 ，文章是 <a href="/post/${mess.postId}" style="color:blue"><${mess.postTitle}></a>
                     </#if>
 
                   </blockquote>

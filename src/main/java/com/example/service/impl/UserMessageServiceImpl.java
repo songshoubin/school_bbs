@@ -12,14 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author 公众号：java思维导图
- * @since 2019-11-17
- */
 @Service
 public class UserMessageServiceImpl extends ServiceImpl<UserMessageMapper, UserMessage> implements UserMessageService {
 

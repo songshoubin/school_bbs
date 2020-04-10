@@ -20,14 +20,6 @@ import org.springframework.web.util.HtmlUtils;
 
 import java.util.Date;
 
-/**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author 公众号：java思维导图
- * @since 2019-11-17
- */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 

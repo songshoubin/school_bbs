@@ -18,15 +18,15 @@
     <div class="fly-panel fly-panel-user" pad20>
       <div class="layui-tab layui-tab-brief" lay-filter="user">
         <ul class="layui-tab-title" id="LAY_mine">
-          <li data-type="mine-jie" lay-id="index" class="layui-this">我发的帖（<span>89</span>）</li>
-          <li data-type="collection" data-url="/collection/find/" lay-id="collection">我收藏的帖（<span>16</span>）</li>
+          <li data-type="mine-jie" lay-id="index" class="layui-this">我发的帖</li>
+          <li data-type="collection" data-url="/collection/find/" lay-id="collection">我收藏的帖</li>
         </ul>
         <div class="layui-tab-content" style="padding: 20px 0;">
           <div class="layui-tab-item layui-show">
             <ul class="mine-view jie-row" id="fabu">
               <script id="tpl-fabu" type="text/html">
                 <li>
-                  <a class="jie-title" href="/post/${d.id}" target="_blank">{{ d.title }}</a>
+                  <a class="jie-title" href="/post/{{d.id}}" target="_blank">{{ d.title }}</a>
                   <i>{{layui.util.toDateString(d.created, 'yyyy-MM-dd HH:mm:ss')}}</i>
                   <a class="mine-edit" href="/post/edit?id={{d.id}}">编辑</a>
                   <em>{{d.viewCount}}阅/{{d.commentCount}}答</em>

@@ -26,7 +26,6 @@ public class WsServiceImpl implements WsService {
                 .eq("status", "0")
         );
 
-        // websocket通知 (/user/20/messCount)
         messagingTemplate.convertAndSendToUser(toUserId.toString(), "/messCount", count);
     }
 }
