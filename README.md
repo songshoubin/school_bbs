@@ -1,54 +1,6 @@
 项目说明：
 本论坛是学习过程中搭建的项目，为了融合更多知识点，让论坛来更加高大上，使用了多个框架组合，有些也是企业级项目中常用的解决方式。
 
-项目结构：
-school_bbs
-│
-├─src
-│  ├─main
-│  │  ├─java
-│  │  │  └─com
-│  │  │      └─school_bbs
-│  │  │          │  CodeGenerator.java #代码生成
-│  │  │          │
-│  │  │          ├─common
-│  │  │          │  ├─exception #全局异常处理
-│  │  │          │  ├─lang
-│  │  │          │  └─templates #自定义Freemarker标签封装
-│  │  │          │
-│  │  │          ├─config #整合配置
-│  │  │          ├─controller
-│  │  │          ├─entity
-│  │  │          │
-│  │  │          ├─im #即时群聊
-│  │  │          │  ├─handler
-│  │  │          │  ├─message
-│  │  │          │  ├─server
-│  │  │          │  └─vo
-│  │  │          │
-│  │  │          ├─mapper
-│  │  │          ├─schedules #定时任务
-│  │  │          │
-│  │  │          ├─search #内容搜索引擎与同步
-│  │  │          │  ├─model
-│  │  │          │  ├─mq
-│  │  │          │  └─repository
-│  │  │          │
-│  │  │          ├─service
-│  │  │          │  └─impl
-│  │  │          │
-│  │  │          ├─shiro #shiro整合
-│  │  │          ├─template #定义标签
-│  │  │          ├─util
-│  │  │          └─vo
-│  │  │
-│  │  └─resources
-│  │      │  application.yml
-│  │      ├─mapper
-│  │      ├─static
-│  │      │  └─res
-│  │      │
-│  │      └─templates #页面模板
 
 技术选型：
 核心框架：Springboot 2.1.2
